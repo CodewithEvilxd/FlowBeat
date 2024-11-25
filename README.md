@@ -7,8 +7,6 @@ Hey everyone! 👋 I'm excited to share my new productivity app FlowBeat!
 - Integrated background sounds to help you focus
 - Timer functionality to track your work sessions
 
-## 🔗 Try It Out
-[FlowBeat App](https://kesharipiyush24.github.io/FlowBeat/)
 
 ## 📝 Important Notes
 - Best experienced on desktop/laptop
