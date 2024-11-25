@@ -1,0 +1,125 @@
+.app {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-background-light);
+    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.app.dark-mode {
+    background-color: var(--color-background-dark);
+}
+
+.content-wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 150px;
+}
+
+.song-name {
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.dark-mode .song-name {
+    color: var(--color-text-dark);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .app {
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .main-section {
+        gap: 2rem;
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .main-section {
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+    }
+}
+
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-background-light);
+}
+
+.dark-mode .loading-container {
+    background: var(--color-background-dark);
+}
+
+.quote-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Prevents horizontal scrollbar */
+}
+
+#root {
+    min-height: 100vh;
+    overflow: hidden;
+    /* Contains all content within viewport */
+}

@@ -1,0 +1,128 @@
+.audio-player {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    z-index: 1000;
+}
+
+.vinyl-record {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: url('/assets/logo.webp') center center/cover;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.vinyl-record::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 99%;
+    height: 99%;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle at center,
+            rgba(0, 0, 0, 0.1) 0,
+            rgba(0, 0, 0, 0.1) 1px,
+            transparent 1px,
+            transparent 3px);
+    opacity: 0.4;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at center,
+            black 0%,
+            black 98%,
+            transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center,
+            black 0%,
+            black 98%,
+            transparent 100%);
+}
+
+.vinyl-record::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.2),
+            rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+}
+
+.vinyl-record.spinning {
+    animation: vinylSpin 4s linear infinite;
+}
+
+.track-info {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    text-align: center;
+    opacity: 0.8;
+}
+
+@keyframes vinylSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add smooth stop animation */
+.vinyl-record:not(.spinning) {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    .audio-player {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .vinyl-record {
+        width: 120px;
+        height: 120px;
+    }
+
+    .track-info {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-record {
+        width: 100px;
+        height: 100px;
+    }
+
+    .vinyl-record::after {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.audio-player:active {
+    cursor: grabbing;
+}

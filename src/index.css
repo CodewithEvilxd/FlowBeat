@@ -1,0 +1,76 @@
+:root {
+  --color-primary: #7F5AF0;
+  --color-primary-dark: #6B47D6;
+  --color-secondary: #72757E;
+  --color-background-light: #F4F6FA;
+  --color-text-light: #2B2C34;
+  --color-surface-light: #FFFFFF;
+  --color-background-dark: #16161A;
+  --color-text-dark: #FFFFFE;
+  --color-surface-dark: #242629;
+  --color-success: #2CB67D;
+  --color-error: #FF6B6B;
+  --color-warning: #FF8E3C;
+  --gradient-primary: linear-gradient(135deg, #7F5AF0, #6B47D6);
+  --gradient-surface-light: linear-gradient(145deg, #FFFFFF, #F8FAFF);
+  --gradient-surface-dark: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  --transition-speed: 0.3s;
+  --shadow-light: 0 4px 20px rgba(127, 90, 240, 0.1);
+  --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.dark-mode {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+
+  100% {
+    transform: rotateX(180deg);
+  }
+}
+
+.flip-animation {
+  animation: flip 0.6s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
